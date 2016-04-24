@@ -1,0 +1,141 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>hospitalintegration</artifactId>
+	<version>0.0.29-SNAPSHOT</version>
+
+
+
+	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<scope>test</scope>
+			<version>2.39.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-server</artifactId>
+			<scope>test</scope>
+			<version>2.39.0</version>
+		</dependency>
+	</dependencies>
+
+	<profiles>
+		<!-- INTEGRATION TESTS PROFILE -->
+		<profile>
+			<id>integration-test</id>
+			<dependencies>
+				<dependency>
+					<groupId>org.seleniumhq.selenium</groupId>
+					<artifactId>selenium-firefox-driver</artifactId>
+					<scope>test</scope>
+					<version>2.39.0</version>
+				</dependency>
+				<dependency>
+					<groupId>com.opera</groupId>
+					<artifactId>operadriver</artifactId>
+					<scope>test</scope>
+					<version>1.5</version>
+				</dependency>
+				<dependency>
+					<groupId>com.github.detro.ghostdriver</groupId>
+					<artifactId>phantomjsdriver</artifactId>
+					<scope>test</scope>
+					<version>1.0.1</version>
+				</dependency>
+				<dependency>
+					<groupId>org.testng</groupId>
+					<artifactId>testng</artifactId>
+					<scope>test</scope>
+					<version>6.8.8</version>
+				</dependency>
+				<dependency>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>2.17</version>
+				</dependency>
+				<dependency>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+					<scope>test</scope>
+					<version>1.7.6</version>
+				</dependency>
+				<dependency>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+					<version>1.7.6</version>
+				</dependency>
+				<dependency>
+					<groupId>log4j</groupId>
+					<artifactId>log4j</artifactId>
+					<version>1.2.16</version>
+					<scope>runtime</scope>
+				</dependency>
+				<dependency>
+					<groupId>org.slf4j</groupId>
+					<artifactId>jcl-over-slf4j</artifactId>
+					<version>1.7.6</version>
+				</dependency>
+			</dependencies>
+
+			<build>
+				<plugins>
+					<!-- local releases repo plugin -->
+					<plugin>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<version>2.8.1</version>
+						<configuration>
+							<altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.17</version>
+						<configuration>
+							<parallel>tests</parallel>
+							<threadCount>5</threadCount>
+							<suiteXmlFiles>
+								<suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+							</suiteXmlFiles>
+						</configuration>
+						<executions>
+							<execution>
+								<phase>integration-test</phase>
+								<goals>
+									<goal>test</goal>
+								</goals>
+								<configuration>
+									<skip>false</skip>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>selenium-maven-plugin</artifactId> 
+						<version>2.3</version> <executions> <execution> <id>start-selenium</id> <phase>pre-integration-test</phase> 
+						<goals> <goal>start-server</goal> </goals> <configuration> <background>true</background> 
+						</configuration> </execution> <execution> <id>stop-selenium</id> <phase>post-integration-test</phase> 
+						<goals> <goal>stop-server</goal> </goals> </execution> </executions> </plugin> -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<configuration>
+							<source>1.8</source>
+							<target>1.8</target>
+						</configuration>
+					</plugin>
+					<!-- <plugin> <groupId>org.mortbay.jetty</groupId> <artifactId>jetty-maven-plugin</artifactId> 
+						<configuration> <scanIntervalSeconds>10</scanIntervalSeconds> <contextPath>/</contextPath> 
+						<scanIntervalSeconds>10</scanIntervalSeconds> <stopKey>STOP</stopKey> <stopPort>8005</stopPort> 
+						<port>8080</port> </configuration> <executions> <execution> <id>start-jetty</id> 
+						<phase>pre-integration-test</phase> <goals> <goal>stop</goal> <goal>run-exploded</goal> 
+						</goals> <configuration> <scanIntervalSeconds>0</scanIntervalSeconds> <daemon>true</daemon> 
+						</configuration> </execution> <execution> <id>stop-jetty</id> <phase>post-integration-test</phase> 
+						<goals> <goal>stop</goal> </goals> </execution> </executions> </plugin> -->
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
+</project>

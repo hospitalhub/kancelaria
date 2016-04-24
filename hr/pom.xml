@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>hr</artifactId>
+	<packaging>war</packaging>
+
+	<properties>
+		<application-path>/hr</application-path>
+		<production-server>http://192.168.3.113:8080/manager/text</production-server>
+	</properties>
+
+	<dependencies>
+		<!-- ADDON MISSING export only visible columns / export columns in order 
+			as in table (using filteringtable addon) -->
+		<!-- <dependency>
+			<groupId>org.vaadin.addon</groupId>
+			<artifactId>tableexport-for-vaadin</artifactId>
+			<version>1.5.1.5</version>
+		</dependency> -->
+		<dependency>
+   <groupId>org.vaadin.addons</groupId>
+   <artifactId>exporter</artifactId>
+   <version>0.0.5.5</version>
+</dependency>
+	</dependencies>
+
+	<parent>
+		<groupId>pl.kalisz.szpital</groupId>
+		<artifactId>hospitalparent</artifactId>
+		<version>0.0.46-SNAPSHOT</version>
+		<relativePath>../hospitalparent/pom.xml</relativePath>
+	</parent>
+
+
+</project>

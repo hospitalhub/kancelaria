@@ -1,23 +1,46 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>wsz</artifactId>
-	<packaging>war</packaging>
-
-	<properties>
-		<application-path>/wsz</application-path>
-		<production-server>http://192.168.0.54:8080/manager/text</production-server>
-	</properties>
-
-	<scm>
-		<developerConnection>scm:git:file:///home/${env.USER}/git/kancelaria</developerConnection>
-		<connection>scm:git:file:///home/${env.USER}/git/kancelaria</connection>
-	</scm>
+	<artifactId>hospital</artifactId>
+	<packaging>pom</packaging>
 
 	<parent>
 		<groupId>pl.kalisz.szpital</groupId>
-		<artifactId>hospitaljava</artifactId>
-		<version>0.0.1</version>
-		<relativePath>hospitaljava/pom.xml</relativePath>
+		<artifactId>hospitalparent</artifactId>
+		<version>0.0.46-SNAPSHOT</version>
+		<relativePath>hospitalparent/pom.xml</relativePath>
 	</parent>
+
+	<properties>
+		<git.repo>scm:git:file:///home/${env.USER}/cloudforge_git/hospital</git.repo>
+	</properties>
+
+	<modules>
+		<module>hospitaldb</module>
+		<module>hospitalwidgetset</module>
+		<module>hospitalparent</module>
+		<module>kancelaria</module>
+		<module>aparatura</module>
+		<module>hr</module>
+	</modules>
+
+	<scm>
+		<developerConnection>${git.repo}</developerConnection>
+		<connection>${git.repo}</connection>
+		<url>${git.repo}</url>
+    <tag>HEAD</tag>
+  </scm>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<connectionUrl>${git.repo}</connectionUrl>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

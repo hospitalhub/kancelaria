@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence 
+	http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" -->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="jpa" transaction-type="RESOURCE_LOCAL">
+		<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+		<non-jta-data-source>jpa</non-jta-data-source>
+		<class>pl.kalisz.szpital.db.kancelaria.Adres</class>
+		<class>pl.kalisz.szpital.db.kancelaria.Role</class>
+		<class>pl.kalisz.szpital.db.kancelaria.Phone</class>
+		<class>pl.kalisz.szpital.db.kancelaria.Transaction</class>
+		<class>pl.kalisz.szpital.db.kancelaria.TypPisma</class>
+		<class>pl.kalisz.szpital.db.kancelaria.User</class>
+		<class>pl.kalisz.szpital.db.aparatura.Urzadzenie</class>
+		<class>pl.kalisz.szpital.db.aparatura.Zlecenie</class>
+		<class>pl.kalisz.szpital.db.aparatura.ZlecenieDetails</class>
+		<class>pl.kalisz.szpital.db.aparatura.Faktura</class>
+		<class>pl.kalisz.szpital.db.aparatura.Oferta</class>
+		<class>pl.kalisz.szpital.db.aparatura.Umowa</class>
+		<class>org.vaadin.appfoundation.authentication.data.User</class>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<properties>
+			<property name="eclipselink.jdbc.platform"
+				value="org.eclipse.persistence.platform.database.MySQLPlatform" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<!-- podczas testowania logging level na FINE / INFO -->
+			<property name="eclipselink.logging.level" value="SEVERE" />
+			<property name="eclipselink.ddl-generation" value="create-or-extend-tables" /> <!-- create-tables -->
+			<property name="eclipselink.ddl-generation.output-mode"
+				value="database" />
+		</properties>
+	</persistence-unit>
+</persistence>

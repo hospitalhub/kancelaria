@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>aparatura</artifactId>
+	<packaging>war</packaging>
+
+	<properties>
+		<application-path>/aparatura</application-path>
+		<production-server>http://192.168.3.113:8080/manager/text</production-server>
+	</properties>
+
+	<parent>
+		<groupId>pl.kalisz.szpital</groupId>
+		<artifactId>hospitalparent</artifactId>
+		<version>0.0.46-SNAPSHOT</version>
+		<relativePath>../hospitalparent/pom.xml</relativePath>
+	</parent>
+
+</project>
