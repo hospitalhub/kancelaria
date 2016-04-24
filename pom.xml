@@ -16,7 +16,7 @@
 	<parent>
 		<groupId>pl.kalisz.szpital</groupId>
 		<artifactId>hospitaljava</artifactId>
-		<version>0.1.4</version>
+		<version>0.0.1</version>
 		<relativePath>hospitaljava/pom.xml</relativePath>
 	</parent>
 

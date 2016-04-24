@@ -12,7 +12,7 @@ import javax.persistence.UniqueConstraint;
  */
 @SuppressWarnings("serial")
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = TypPisma.NAZWA))
+@Table(name = "TYPPISMA", uniqueConstraints = @UniqueConstraint(columnNames = TypPisma.NAZWA))
 public class TypPisma implements Serializable, Comparable<TypPisma> {
 
   /** The Constant NAZWA. */
