@@ -1,0 +1,53 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="kancelaria testy" verbose="10">
+	<parameter name="selenium.host" value="localhost" />
+	<parameter name="selenium.port" value="3737" />
+	<!-- *googlechrome *firefox *opera -->
+	<parameter name="selenium.browser" value="*chrome" />
+	<parameter name="selenium.url" value="http://localhost:8080" />
+	<test name="newtrans" preserve-order="true">
+		<classes>
+			<class name="pl.kalisz.szpital.UILoginTest">
+				<methods>
+					<include name="launchSite" />
+					<include name="loginFailed" />
+					<include name="login" />
+				</methods>
+			</class>
+			<class name="pl.kalisz.szpital.UINewTransTest">
+				<methods>
+					<include name="navigateNewPost" />
+					<include name="writeData" />
+				</methods>
+			</class>
+			<class name="pl.kalisz.szpital.UILogoutTest">
+				<methods>
+					<include name="logout" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+		<test name="newtrans2" preserve-order="true">
+		<classes>
+			<class name="pl.kalisz.szpital.UILoginTest">
+				<methods>
+					<include name="launchSite" />
+					<include name="loginFailed" />
+					<include name="login" />
+				</methods>
+			</class>
+			<class name="pl.kalisz.szpital.UINewTransTest">
+				<methods>
+					<include name="navigateNewPost" />
+					<include name="writeData" />
+				</methods>
+			</class>
+			<class name="pl.kalisz.szpital.UILogoutTest">
+				<methods>
+					<include name="logout" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
+
