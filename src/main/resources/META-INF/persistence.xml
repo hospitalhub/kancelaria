@@ -12,7 +12,7 @@
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/wordpress?useUnicode=yes&amp;characterEncoding=UTF-8" />
             <property name="javax.persistence.jdbc.user" value="root" />
-            <property name="javax.persistence.jdbc.password" value="nA8Wedeg" />
+            <property name="javax.persistence.jdbc.password" value="" />
             <!-- podczas testowania logging level na FINE / INFO -->
             <property name="eclipselink.logging.level" value="SEVERE" />
             <property name="eclipselink.ddl-generation" value="create-or-extend-tables" /> <!-- create-tables -->

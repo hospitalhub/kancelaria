@@ -11,4 +11,5 @@ widgetsets/
 *.war
 *.ear
 hs_err_pid*
-
+.gradle
+/bin/
