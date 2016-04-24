@@ -3,23 +3,14 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>pl.kalisz.szpital</groupId>
 	<artifactId>hospitaljava</artifactId>
-	<version>0.0.1</version>
+	<version>0.7.26-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
 		<productionMode>true</productionMode>
-		<vaadin.version>7.3.9</vaadin.version>
-		<vaadin.theme.version>7.1.15</vaadin.theme.version>
-		<vaadin.plugin.version>${vaadin.version}</vaadin.plugin.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<git.repo>scm:git:file:///home/${env.USER}/git/${project.artifactId}</git.repo>
+		<widgetset.version>${project.version}</widgetset.version>
 	</properties>
-
-	<scm>
-		<developerConnection>${git.repo}</developerConnection>
-		<connection>${git.repo}</connection>
-		<url>${git.repo}</url>
-	</scm>
 
 	<distributionManagement>
 		<repository>
@@ -41,13 +32,14 @@
 			<id>sonatype vaadin</id>
 			<url>https://oss.sonatype.org/content/repositories/vaadin/</url>
 		</repository>
-		<repository>
-			<id>qiiip-repo</id>
-			<url>http://qiiip.org/mavenRepo</url>
-		</repository>
 	</repositories>
 
 	<dependencies>
+		<dependency>
+			<groupId>pl.kalisz.szpital</groupId>
+			<artifactId>hospitalwidgetset</artifactId>
+			<version>${widgetset.version}</version>
+		</dependency>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
@@ -61,49 +53,9 @@
 			<version>2.39.0</version>
 		</dependency>
 		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-server</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-<!-- 		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-push</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency> -->
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-themes</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client-compiler</artifactId>
-			<scope>provided</scope>
-			<version>${vaadin.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.eclipse.jetty</groupId>
-					<artifactId>jetty-servlets</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.eclipse.jetty</groupId>
-					<artifactId>jetty-annotations</artifactId>
-				</exclusion>
-				<exclusion>
-					<groupId>org.eclipse.jetty</groupId>
-					<artifactId>jetty-util</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-theme-compiler</artifactId>
-			<version>${vaadin.theme.version}</version>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+			<version>3.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.vaadin.addon</groupId>
@@ -116,19 +68,20 @@
 			<version>2.5.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.vaadin.addon</groupId>
-			<artifactId>confirmdialog</artifactId>
-			<version>2.0.5</version>
+			<groupId>com.vaadin</groupId>
+			<artifactId>vaadin-cdi</artifactId>
+			<version>1.0.3</version>
 		</dependency>
 		<dependency>
-			<groupId>org.vaadin.addons</groupId>
-			<artifactId>tokenfield</artifactId>
-			<version>7.0.1</version>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.34</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -198,11 +151,6 @@
 			<version>1.50</version>
 		</dependency>
 		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-client-compiled</artifactId>
-			<version>7.1.11</version>
-		</dependency>
-		<dependency>
 			<groupId>org.vaadin.addons</groupId>
 			<artifactId>appfoundation</artifactId>
 			<version>2.0.0</version>
@@ -211,11 +159,6 @@
 			<groupId>org.apache.lucene</groupId>
 			<artifactId>lucene-core</artifactId>
 			<version>4.7.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.vaadin.addons</groupId>
-			<artifactId>filteringtable</artifactId>
-			<version>0.9.9.v7</version>
 		</dependency>
 		<!-- <dependency> -->
 		<!-- <groupId>org.vaadin.artur.widgetsetoptimizer</groupId> -->
@@ -274,46 +217,6 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>src/main/webapp/VAADIN/widgetsets</directory>
-						</fileset>
-						<fileset>
-							<directory>src/main/webapp/VAADIN/gwt-unitCache</directory>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>com.vaadin</groupId>
-				<artifactId>vaadin-maven-plugin</artifactId>
-				<version>${vaadin.plugin.version}</version>
-				<configuration>
-					<extraJvmArgs>-Xmx512M -Xss1024k</extraJvmArgs>
-					<webappDirectory>${basedir}/src/main/webapp/VAADIN/widgetsets</webappDirectory>
-					<hostedWebapp>${basedir}/src/main/webapp/VAADIN/widgetsets</hostedWebapp>
-					<noServer>true</noServer>
-					<draftCompile>false</draftCompile>
-					<style>OBF</style>
-					<compileReport>true</compileReport>
-					<runTarget>http://127.0.0.1:8080/</runTarget>
-				</configuration>
-				<executions>
-					<execution>
-						<configuration>
-						</configuration>
-						<goals>
-							<goal>resources</goal>
-							<goal>update-widgetset</goal>
-							<goal>compile</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<version>2.2</version>
@@ -351,37 +254,6 @@
 					<configuration>
 						<source>1.8</source>
 						<target>1.8</target>
-					</configuration>
-				</plugin>
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>com.vaadin</groupId>
-										<artifactId>
-											vaadin-maven-plugin
-										</artifactId>
-										<versionRange>
-											[7.3.9,)
-										</versionRange>
-										<goals>
-											<goal>resources</goal>
-											<goal>
-												update-widgetset
-											</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
 					</configuration>
 				</plugin>
 			</plugins>
@@ -488,11 +360,30 @@
 							</execution>
 						</executions>
 					</plugin>
-					<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>selenium-maven-plugin</artifactId> 
-						<version>2.3</version> <executions> <execution> <id>start-selenium</id> <phase>pre-integration-test</phase> 
-						<goals> <goal>start-server</goal> </goals> <configuration> <background>true</background> 
-						</configuration> </execution> <execution> <id>stop-selenium</id> <phase>post-integration-test</phase> 
-						<goals> <goal>stop-server</goal> </goals> </execution> </executions> </plugin> -->
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>selenium-maven-plugin</artifactId>
+						<version>2.3</version>
+						<executions>
+							<execution>
+								<id>start-selenium</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>start-server</goal>
+								</goals>
+								<configuration>
+									<background>true</background>
+								</configuration>
+							</execution>
+							<execution>
+								<id>stop-selenium</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>stop-server</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
@@ -501,14 +392,6 @@
 							<target>1.8</target>
 						</configuration>
 					</plugin>
-					<!-- <plugin> <groupId>org.mortbay.jetty</groupId> <artifactId>jetty-maven-plugin</artifactId> 
-						<configuration> <scanIntervalSeconds>10</scanIntervalSeconds> <contextPath>/</contextPath> 
-						<scanIntervalSeconds>10</scanIntervalSeconds> <stopKey>STOP</stopKey> <stopPort>8005</stopPort> 
-						<port>8080</port> </configuration> <executions> <execution> <id>start-jetty</id> 
-						<phase>pre-integration-test</phase> <goals> <goal>stop</goal> <goal>run-exploded</goal> 
-						</goals> <configuration> <scanIntervalSeconds>0</scanIntervalSeconds> <daemon>true</daemon> 
-						</configuration> </execution> <execution> <id>stop-jetty</id> <phase>post-integration-test</phase> 
-						<goals> <goal>stop</goal> </goals> </execution> </executions> </plugin> -->
 				</plugins>
 			</build>
 		</profile>
@@ -527,42 +410,6 @@
 					<value>true</value>
 				</property>
 			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-release-plugin</artifactId>
-						<version>2.5.1</version>
-						<configuration>
-							<autoVersionSubmodules>true</autoVersionSubmodules>
-							<commitByProject>true</commitByProject>
-							<updateDependencies>true</updateDependencies>
-							<connectionUrl>${git.repo}</connectionUrl>
-						</configuration>
-					</plugin>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>exec-maven-plugin</artifactId>
-						<version>1.2.1</version>
-						<executions>
-							<execution>
-								<phase>prepare-package</phase>
-								<configuration>
-									<mainClass>com.vaadin.sass.SassCompiler</mainClass>
-									<workingDirectory>${project.basedir}</workingDirectory>
-									<arguments>
-										<argument>${project.build.directory}/${project.artifactId}-${project.version}/VAADIN/themes/dashboard/styles.scss</argument>
-										<argument>${project.build.directory}/${project.artifactId}-${project.version}/VAADIN/themes/dashboard/styles.css</argument>
-									</arguments>
-								</configuration>
-								<goals>
-									<goal>java</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-				</plugins>
-			</build>
 		</profile>
 	</profiles>
 

@@ -1,0 +1,27 @@
+<html>
+<head>
+	<meta name="package-mapping" content="kancelaria:pl.kalisz.szpital.kancelaria.ui.editor.transaction" />
+</head>
+<body>
+	<v-panel>
+		<v-vertical-layout size-full spacing margin >
+			<v-horizontal-layout size-full spacing >
+			    <v-list-select caption="Typ Wiadomości" _id="typWiadomosci" size-full rows="6" null-selection-allowed="false" />
+			    <v-list-select caption="Typ Pisma" size-full null-selection-allowed="false" rows="6" />
+			    <kancelaria-address-field caption="Adres" _id="adres" size-full />
+		   		<v-text-area caption="Notatki" size-full rows="6" />
+			</v-horizontal-layout>
+			<v-vertical-layout size-full spacing >
+			  	<v-combo-box caption="Komórki Organizacyjne" _id="komorkiOrganizacyjne" width="100%" input-prompt="Wpisz kody oddzielone spacją lub wybierz z listy" immediate />
+			  	<v-text-area caption="Dekretacje" _id="dekretacje" width="100%" rows="5" />
+			</v-vertical-layout>
+			<v-horizontal-layout size-auto spacing :right>
+				<v-button style-name="primary" _id="scan" >Skan</v-button>
+				<v-upload style-name="primary" _id="attach" button-caption="Załącz" immediate />
+				<v-button style-name="danger" _id="cancel" >Anuluj</v-button>
+				<v-button style-name="primary" _id="save" >Zapisz</v-button>
+			</v-horizontal-layout>
+		</v-vertical-layout>
+	</v-panel>
+</body>
+</html>
