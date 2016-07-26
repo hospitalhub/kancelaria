@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The Class AddressMerger.
@@ -13,7 +14,7 @@ import org.apache.log4j.Logger;
 public class AddressMerger {
 
   /** The Constant logger. */
-  static final Logger LOGGER = Logger.getLogger(DbHelper.class.toString());
+  static final Logger LOGGER = LoggerFactory.getLogger(DbHelper.class.toString());
 
   /**
    * Merge adresy.

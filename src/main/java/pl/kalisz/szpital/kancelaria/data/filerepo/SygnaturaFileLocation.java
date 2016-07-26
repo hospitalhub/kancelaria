@@ -4,7 +4,8 @@ import java.io.File;
 import java.text.DecimalFormat;
 import java.util.Date;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import pl.kalisz.szpital.kancelaria.data.pojo.Transaction;
 import pl.kalisz.szpital.kancelaria.utils.DateUtils;
@@ -17,7 +18,7 @@ import pl.kalisz.szpital.kancelaria.utils.Strings;
 public class SygnaturaFileLocation implements FileLocationStrategy {
 
   /** The Constant logger. */
-  private static final Logger LOGGER = Logger.getLogger(SygnaturaFileLocation.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(SygnaturaFileLocation.class);
 
   /** The Constant PW_FOLDER. */
   private static final String PW_FOLDER = "Przychodzące wewnętrzne";

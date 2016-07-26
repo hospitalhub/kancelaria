@@ -4,7 +4,8 @@ import java.io.File;
 import java.sql.Date;
 import java.util.LinkedHashSet;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.vaadin.dialogs.ConfirmDialog;
 import org.vaadin.tokenfield.TokenField;
 
@@ -61,7 +62,7 @@ import pl.kalisz.szpital.kancelaria.utils.pdf.PDFMerger;
 public class TransactionEditorWindow extends Window {
 
   /** The Constant logger. */
-  private static final Logger logger = Logger.getLogger(TransactionEditorWindow.class);
+  private static final Logger logger = LoggerFactory.getLogger(TransactionEditorWindow.class);
 
   /** The adres ta. */
   private final TextArea adresTA = new TextArea();

@@ -9,7 +9,8 @@ import java.util.List;
 import java.util.Vector;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tepi.filtertable.datefilter.DateInterval;
 import org.tepi.filtertable.paged.PagedFilterControlConfig;
 import org.vaadin.dialogs.ConfirmDialog;
@@ -83,7 +84,7 @@ public class TransactionView extends VerticalLayout implements View {
   private Label title = new Label();
 
   /** The Constant logger. */
-  private static final Logger logger = Logger.getLogger(TransactionView.class);
+  private static final Logger logger = LoggerFactory.getLogger(TransactionView.class);
 
   /** The toolbar. */
   private final HorizontalLayout toolbar = new HorizontalLayout();

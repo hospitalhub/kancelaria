@@ -8,7 +8,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The Class OCRProcessor.
@@ -16,7 +17,7 @@ import org.apache.log4j.Logger;
 public class OCRProcessor extends Observable {
   
   /** The Constant logger. */
-  static final Logger LOGGER = Logger.getLogger(OCRProcessor.class);
+  static final Logger LOGGER = LoggerFactory.getLogger(OCRProcessor.class);
 
   /* (non-Javadoc)
    * @see java.util.Observable#addObserver(java.util.Observer)

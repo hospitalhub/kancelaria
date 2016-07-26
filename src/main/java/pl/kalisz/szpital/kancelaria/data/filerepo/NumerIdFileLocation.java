@@ -3,7 +3,8 @@ package pl.kalisz.szpital.kancelaria.data.filerepo;
 import java.io.File;
 import java.text.DecimalFormat;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import pl.kalisz.szpital.kancelaria.data.pojo.Transaction;
 import pl.kalisz.szpital.kancelaria.utils.Strings;
@@ -15,7 +16,7 @@ import pl.kalisz.szpital.kancelaria.utils.Strings;
 public class NumerIdFileLocation implements FileLocationStrategy {
 
   /** The Constant LOGGER. */
-  private static final Logger LOGGER = Logger.getLogger(NumerIdFileLocation.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(NumerIdFileLocation.class);
 
   /** The Constant OSMIOCYFR. */
   private static final DecimalFormat OSMIOCYFR = new DecimalFormat(Strings.ZERO_X8);

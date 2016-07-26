@@ -1,6 +1,7 @@
 package pl.kalisz.szpital.kancelaria.ui;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import pl.kalisz.szpital.kancelaria.DashboardUI;
 import pl.kalisz.szpital.kancelaria.data.pojo.Transaction;
@@ -19,7 +20,7 @@ import com.vaadin.ui.MenuBar.MenuItem;
 public class NoweZdarzenieCommand implements MenuBar.Command {
 
   /** The Constant logger. */
-  private static final Logger logger = Logger.getLogger(NoweZdarzenieCommand.class);
+  private static final Logger logger = LoggerFactory.getLogger(NoweZdarzenieCommand.class);
 
   /*
    * (non-Javadoc)

@@ -4,16 +4,10 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Locale;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.vaadin.appfoundation.authorization.Permissions;
 import org.vaadin.appfoundation.authorization.jpa.JPAPermissionManager;
-
-import pl.kalisz.szpital.kancelaria.data.db.DbHelper;
-import pl.kalisz.szpital.kancelaria.data.pojo.Transaction;
-import pl.kalisz.szpital.kancelaria.data.pojo.User;
-import pl.kalisz.szpital.kancelaria.other.MyConverterFactory;
-import pl.kalisz.szpital.kancelaria.ui.TransactionView;
-import pl.kalisz.szpital.kancelaria.utils.Strings;
 
 import com.vaadin.addon.jpacontainer.JPAContainer;
 import com.vaadin.annotations.Theme;
@@ -43,6 +37,13 @@ import com.vaadin.ui.PasswordField;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
 
+import pl.kalisz.szpital.kancelaria.data.db.DbHelper;
+import pl.kalisz.szpital.kancelaria.data.pojo.Transaction;
+import pl.kalisz.szpital.kancelaria.data.pojo.User;
+import pl.kalisz.szpital.kancelaria.other.MyConverterFactory;
+import pl.kalisz.szpital.kancelaria.ui.TransactionView;
+import pl.kalisz.szpital.kancelaria.utils.Strings;
+
 /**
  * The Class DashboardUI.
  */
@@ -54,7 +55,7 @@ public class DashboardUI extends UI {
   private static final int FULL = 100;
 
   /** The Constant LOGGER. */
-  private static final Logger LOGGER = Logger.getLogger(DashboardUI.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(DashboardUI.class);
 
   /** The user. */
   private User user = null;

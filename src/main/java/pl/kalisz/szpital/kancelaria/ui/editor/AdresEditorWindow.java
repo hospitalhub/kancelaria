@@ -1,6 +1,7 @@
 package pl.kalisz.szpital.kancelaria.ui.editor;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.vaadin.data.Item;
 import com.vaadin.data.Validator;
@@ -29,7 +30,7 @@ import pl.kalisz.szpital.kancelaria.utils.Strings;
 public class AdresEditorWindow extends Window {
 
   /** The Constant logger. */
-  private static final Logger logger = Logger.getLogger(AdresEditorWindow.class);
+  private static final Logger logger = LoggerFactory.getLogger(AdresEditorWindow.class);
 
   /** The form. */
   private FormLayout form = new FormLayout();

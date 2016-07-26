@@ -6,7 +6,8 @@ import java.nio.charset.Charset;
 import java.util.Observable;
 import java.util.Observer;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import pl.kalisz.szpital.kancelaria.utils.File2StringUtil;
 import pl.kalisz.szpital.kancelaria.utils.LocalProcess;
@@ -26,7 +27,7 @@ public class Png2Text extends Thread {
   private final File png;
 
   /** The Constant logger. */
-  static final Logger LOGGER = Logger.getLogger(Png2Text.class);
+  static final Logger LOGGER = LoggerFactory.getLogger(Png2Text.class);
 
   /** The Constant TESS_PATH. */
   private static final String TESS_PATH = "tesseract -l pol -psm 1 %s stdout";

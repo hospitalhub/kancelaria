@@ -5,6 +5,7 @@
 	<artifactId>hospitaljava</artifactId>
 	<version>0.0.1</version>
 	<packaging>pom</packaging>
+	<!-- mvn clean vaadin:clean vaadin:update-widgetset vaadin:compile package jetty:run -->
 
 	<properties>
 		<productionMode>true</productionMode>
@@ -155,19 +156,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
-			<artifactId>log4j-over-slf4j</artifactId>
-			<version>1.7.5</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-nop</artifactId>
-			<version>1.7.7</version>
-		</dependency>
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
-			<scope>runtime</scope>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.21</version>
 		</dependency>
 		<dependency>
 			<groupId>org.quartz-scheduler</groupId>
@@ -204,21 +194,13 @@
 			<artifactId>appfoundation</artifactId>
 			<version>2.0.0</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.lucene</groupId>
-			<artifactId>lucene-core</artifactId>
-			<version>4.7.2</version>
-		</dependency>
+		<!-- <dependency> <groupId>org.apache.lucene</groupId> <artifactId>lucene-core</artifactId> 
+			<version>4.7.2</version> </dependency> -->
 		<dependency>
 			<groupId>org.vaadin.addons</groupId>
 			<artifactId>filteringtable</artifactId>
 			<version>0.9.9.v7</version>
 		</dependency>
-		<!-- <dependency> -->
-		<!-- <groupId>org.vaadin.artur.widgetsetoptimizer</groupId> -->
-		<!-- <artifactId>widgetsetoptimizer</artifactId> -->
-		<!-- <version>0.1.0</version> -->
-		<!-- </dependency> -->
 	</dependencies>
 
 	<reporting>

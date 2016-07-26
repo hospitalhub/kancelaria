@@ -9,11 +9,12 @@ import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import org.apache.log4j.Logger;
 import org.apache.pdfbox.exceptions.CryptographyException;
 import org.apache.pdfbox.exceptions.InvalidPasswordException;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * The Class PDFImage.
@@ -21,7 +22,7 @@ import org.apache.pdfbox.pdmodel.PDPage;
 public class PDF2Png extends Thread {
 
   /** The Constant logger. */
-  private static final Logger logger = Logger.getLogger(PDF2Png.class);
+  private static final Logger logger = LoggerFactory.getLogger(PDF2Png.class);
 
   /** The Constant password. */
   private static final String password = "";

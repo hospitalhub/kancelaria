@@ -21,7 +21,7 @@ public class ArchiviseJob implements Job {
 //  private static final String JDBC_HSQLDB_FILE = "jdbc:hsqldb:http://127.0.0.1:8080/wsz/hsql";
 //
 //  /** The Constant logger. */
-//  public static final Logger LOGGER = Logger.getLogger(ArchiviseJob.class);
+//  public static final Logger LOGGER = LoggerFactory.getLogger(ArchiviseJob.class);
 //
 //  /** The connection pool. */
 //  SimpleJDBCConnectionPool connectionPool;

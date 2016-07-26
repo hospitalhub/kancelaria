@@ -3,21 +3,12 @@ package pl.kalisz.szpital.kancelaria.ui.search;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tepi.filtertable.FilterGenerator;
 import org.tepi.filtertable.paged.PagedFilterControlConfig;
 import org.tepi.filtertable.paged.PagedFilterTable;
 import org.vaadin.dialogs.ConfirmDialog;
-
-import pl.kalisz.szpital.kancelaria.DashboardUI;
-import pl.kalisz.szpital.kancelaria.data.db.AddressMerger;
-import pl.kalisz.szpital.kancelaria.data.db.DbHelper;
-import pl.kalisz.szpital.kancelaria.data.pojo.Adres;
-import pl.kalisz.szpital.kancelaria.data.pojo.AdresBuilder;
-import pl.kalisz.szpital.kancelaria.other.IntegerComparator;
-import pl.kalisz.szpital.kancelaria.ui.MyPagedFilterTable;
-import pl.kalisz.szpital.kancelaria.ui.editor.AdresEditorWindow;
-import pl.kalisz.szpital.kancelaria.utils.Strings;
 
 import com.google.gwt.thirdparty.guava.common.collect.Multimap;
 import com.google.gwt.thirdparty.guava.common.collect.TreeMultimap;
@@ -41,6 +32,16 @@ import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 
+import pl.kalisz.szpital.kancelaria.DashboardUI;
+import pl.kalisz.szpital.kancelaria.data.db.AddressMerger;
+import pl.kalisz.szpital.kancelaria.data.db.DbHelper;
+import pl.kalisz.szpital.kancelaria.data.pojo.Adres;
+import pl.kalisz.szpital.kancelaria.data.pojo.AdresBuilder;
+import pl.kalisz.szpital.kancelaria.other.IntegerComparator;
+import pl.kalisz.szpital.kancelaria.ui.MyPagedFilterTable;
+import pl.kalisz.szpital.kancelaria.ui.editor.AdresEditorWindow;
+import pl.kalisz.szpital.kancelaria.utils.Strings;
+
 /**
  * The Class AdresSearchWindow.
  */
@@ -48,7 +49,7 @@ import com.vaadin.ui.Window;
 public class AdresSearchWindow extends Window {
 
   /** The Constant logger. */
-  private static final Logger logger = Logger.getLogger(AdresSearchWindow.class);
+  private static final Logger logger = LoggerFactory.getLogger(AdresSearchWindow.class);
 
   /** The contact list. */
   private MyPagedFilterTable<JPAContainer<Adres>> contactList =
