@@ -65,11 +65,8 @@
 			<artifactId>vaadin-server</artifactId>
 			<version>${vaadin.version}</version>
 		</dependency>
-<!-- 		<dependency>
-			<groupId>com.vaadin</groupId>
-			<artifactId>vaadin-push</artifactId>
-			<version>${vaadin.version}</version>
-		</dependency> -->
+		<!-- <dependency> <groupId>com.vaadin</groupId> <artifactId>vaadin-push</artifactId> 
+			<version>${vaadin.version}</version> </dependency> -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-themes</artifactId>
@@ -266,6 +263,14 @@
 
 	<build>
 		<plugins>
+			<!-- EMB -->
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.3.10.v20160621</version>
+			</plugin>
+			<!-- EMB end -->
+
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
