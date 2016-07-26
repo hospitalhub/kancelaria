@@ -5,7 +5,8 @@
 	<artifactId>hospitaljava</artifactId>
 	<version>0.0.1</version>
 	<packaging>pom</packaging>
-	<!-- mvn clean vaadin:clean vaadin:update-widgetset vaadin:compile package jetty:run -->
+	<!-- mvn clean vaadin:clean vaadin:update-widgetset vaadin:compile package 
+		jetty:run -->
 
 	<properties>
 		<productionMode>true</productionMode>
@@ -245,13 +246,16 @@
 
 	<build>
 		<plugins>
-			<!-- EMB -->
+			<!-- EMBEDDED JETTY in prod rem scan interval -->
 			<plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.3.10.v20160621</version>
+				<configuration>
+					<scanIntervalSeconds>2</scanIntervalSeconds>
+				</configuration>
 			</plugin>
-			<!-- EMB end -->
+			<!-- end -->
 
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

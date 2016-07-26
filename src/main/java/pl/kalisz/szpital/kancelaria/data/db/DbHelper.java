@@ -19,82 +19,88 @@ import com.vaadin.addon.jpacontainer.JPAContainerFactory;
 @SuppressWarnings("serial")
 public class DbHelper implements Serializable {
 
-  /** The Constant JDBC_HSQLDB. */
-  static final String JDBC_HSQLDB = "jdbc:mysql://127.0.0.1:3306/wordpress?user=root&password=nA8Wedeg&useUnicode=yes&amp;characterEncoding=UTF-8";
+	/** The Constant ADRES_CONTAINER. */
+	public static final int ADRES_CONTAINER = 1;
 
-  /** The Constant ADRES_CONTAINER. */
-  public static final int ADRES_CONTAINER = 1;
+	/** The Constant JPA. */
+	private static final String JPA = "jpa";
 
-  /** The Constant JPA. */
-  private static final String JPA = "jpa";
+	/** The Constant TRANSACTION_CONTAINER. */
+	public static final int TRANSACTION_CONTAINER = 0;
 
+	/** The Constant TYP_PISMA_CONTAINER. */
+	public static final int TYP_PISMA_CONTAINER = 3;
 
-  /** The Constant TRANSACTION_CONTAINER. */
-  public static final int TRANSACTION_CONTAINER = 0;
+	/** The Constant USER_CONTAINER. */
+	public static final int USER_CONTAINER = 2;
 
-  /** The Constant TYP_PISMA_CONTAINER. */
-  public static final int TYP_PISMA_CONTAINER = 3;
+	/** The Constant ADDRESS_BOUND_TRANSACTION_CONTAINER. */
+	public static final int ADDRESS_BOUND_TRANSACTION_CONTAINER = 4;
 
-  /** The Constant USER_CONTAINER. */
-  public static final int USER_CONTAINER = 2;
+	/** The adres container. */
+	private JPAContainer<Adres> adresContainer;
 
-  /** The Constant ADDRESS_BOUND_TRANSACTION_CONTAINER. */
-  public static final int ADDRESS_BOUND_TRANSACTION_CONTAINER = 4;
+	/** The em. */
+	@PersistenceUnit
+	protected EntityManager em;
 
-  /** The adres container. */
-  private JPAContainer<Adres> adresContainer;
+	/** The transaction container. */
+	private JPAContainer<Transaction> transactionContainer;
 
-  /** The em. */
-  @PersistenceUnit
-  protected EntityManager em;
+	/** The address bound transaction container. */
+	private JPAContainer<Transaction> addressBoundTransactionContainer;
 
-  /** The transaction container. */
-  private JPAContainer<Transaction> transactionContainer;
+	/** The typpisma container. */
+	private JPAContainer<TypPisma> typpismaContainer;
 
-  /** The address bound transaction container. */
-  private JPAContainer<Transaction> addressBoundTransactionContainer;
+	/** The user container. */
+	private JPAContainer<User> userContainer;
 
-  /** The typpisma container. */
-  private JPAContainer<TypPisma> typpismaContainer;
+	/**
+	 * Instantiates a new db helper.
+	 */
+	public DbHelper() {
+		createContainers();
+		checkNumOfUsers();
+	}
 
-  /** The user container. */
-  private JPAContainer<User> userContainer;
+	private void checkNumOfUsers() {
+		System.out.println("USER SIZE " + userContainer.size());
+	}
 
-  /**
-   * Instantiates a new db helper.
-   */
-  public DbHelper() {
-    adresContainer = JPAContainerFactory.make(Adres.class, JPA);
-    transactionContainer = JPAContainerFactory.make(Transaction.class, JPA);
-    transactionContainer.setApplyFiltersImmediately(true);
-    addressBoundTransactionContainer = JPAContainerFactory.make(Transaction.class, JPA);
-    userContainer = JPAContainerFactory.make(User.class, JPA);
-    typpismaContainer = JPAContainerFactory.make(TypPisma.class, JPA);
-  }
+	private void createContainers() {
+		adresContainer = JPAContainerFactory.make(Adres.class, JPA);
+		transactionContainer = JPAContainerFactory.make(Transaction.class, JPA);
+		transactionContainer.setApplyFiltersImmediately(true);
+		addressBoundTransactionContainer = JPAContainerFactory.make(Transaction.class, JPA);
+		userContainer = JPAContainerFactory.make(User.class, JPA);
+		typpismaContainer = JPAContainerFactory.make(TypPisma.class, JPA);
 
-  /**
-   * Gets the container.
-   * 
-   * @param containerType the container type
-   * @return the container
-   */
-  @SuppressWarnings("rawtypes")
-  public final JPAContainer getContainer(final int containerType) {
-    switch (containerType) {
-      case TRANSACTION_CONTAINER:
-        return transactionContainer;
-      case ADDRESS_BOUND_TRANSACTION_CONTAINER:
-        return addressBoundTransactionContainer;
-      case ADRES_CONTAINER:
-        return adresContainer;
-      case USER_CONTAINER:
-        return userContainer;
-      case TYP_PISMA_CONTAINER:
-        return typpismaContainer;
-      default:
-        throw new IllegalArgumentException();
-    }
-  }
+	}
 
+	/**
+	 * Gets the container.
+	 * 
+	 * @param containerType
+	 *            the container type
+	 * @return the container
+	 */
+	@SuppressWarnings("rawtypes")
+	public final JPAContainer getContainer(final int containerType) {
+		switch (containerType) {
+		case TRANSACTION_CONTAINER:
+			return transactionContainer;
+		case ADDRESS_BOUND_TRANSACTION_CONTAINER:
+			return addressBoundTransactionContainer;
+		case ADRES_CONTAINER:
+			return adresContainer;
+		case USER_CONTAINER:
+			return userContainer;
+		case TYP_PISMA_CONTAINER:
+			return typpismaContainer;
+		default:
+			throw new IllegalArgumentException();
+		}
+	}
 
 }
