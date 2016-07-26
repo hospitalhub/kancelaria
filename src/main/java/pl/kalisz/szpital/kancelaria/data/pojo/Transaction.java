@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -23,9 +22,9 @@ import org.eclipse.persistence.annotations.Index;
 import org.eclipse.persistence.annotations.JoinFetch;
 import org.eclipse.persistence.annotations.JoinFetchType;
 
-import pl.kalisz.szpital.kancelaria.data.enums.TypWiadomosci;
-
 import com.vaadin.data.Item;
+
+import pl.kalisz.szpital.kancelaria.data.enums.TypWiadomosci;
 
 
 /**

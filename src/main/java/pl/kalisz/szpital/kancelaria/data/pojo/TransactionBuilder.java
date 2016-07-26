@@ -2,8 +2,6 @@ package pl.kalisz.szpital.kancelaria.data.pojo;
 
 import java.util.Date;
 
-import com.vaadin.ui.Notification;
-
 import pl.kalisz.szpital.kancelaria.data.enums.TypWiadomosci;
 import pl.kalisz.szpital.kancelaria.utils.Strings;
 

@@ -8,30 +8,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Vector;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.tepi.filtertable.datefilter.DateInterval;
 import org.tepi.filtertable.paged.PagedFilterControlConfig;
 import org.vaadin.dialogs.ConfirmDialog;
-
-import pl.kalisz.szpital.kancelaria.DashboardUI;
-import pl.kalisz.szpital.kancelaria.data.db.DbHelper;
-import pl.kalisz.szpital.kancelaria.data.enums.Theme;
-import pl.kalisz.szpital.kancelaria.data.enums.TypWiadomosci;
-import pl.kalisz.szpital.kancelaria.data.filerepo.FileLocationContext;
-import pl.kalisz.szpital.kancelaria.data.filerepo.FilepathLocationStrategy;
-import pl.kalisz.szpital.kancelaria.data.filerepo.SygnaturaFileLocation;
-import pl.kalisz.szpital.kancelaria.data.filerepo.TempFileLocationStrategy;
-import pl.kalisz.szpital.kancelaria.data.pojo.Role;
-import pl.kalisz.szpital.kancelaria.data.pojo.Transaction;
-import pl.kalisz.szpital.kancelaria.data.pojo.User;
-import pl.kalisz.szpital.kancelaria.raport.RaportEtykietyPdf;
-import pl.kalisz.szpital.kancelaria.raport.RaportKorespondencjaPdf;
-import pl.kalisz.szpital.kancelaria.raport.RaportPocztaPdf;
-import pl.kalisz.szpital.kancelaria.ui.editor.TransactionEditorWindow;
-import pl.kalisz.szpital.kancelaria.utils.DateUtils;
-import pl.kalisz.szpital.kancelaria.utils.Strings;
 
 import com.vaadin.addon.jpacontainer.EntityItem;
 import com.vaadin.addon.jpacontainer.JPAContainer;
@@ -67,6 +48,23 @@ import com.vaadin.ui.VerticalLayout;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.Window.CloseEvent;
 import com.vaadin.ui.Window.CloseListener;
+
+import pl.kalisz.szpital.kancelaria.DashboardUI;
+import pl.kalisz.szpital.kancelaria.data.db.DbHelper;
+import pl.kalisz.szpital.kancelaria.data.enums.Theme;
+import pl.kalisz.szpital.kancelaria.data.enums.TypWiadomosci;
+import pl.kalisz.szpital.kancelaria.data.filerepo.FileLocationContext;
+import pl.kalisz.szpital.kancelaria.data.filerepo.FilepathLocationStrategy;
+import pl.kalisz.szpital.kancelaria.data.filerepo.TempFileLocationStrategy;
+import pl.kalisz.szpital.kancelaria.data.pojo.Role;
+import pl.kalisz.szpital.kancelaria.data.pojo.Transaction;
+import pl.kalisz.szpital.kancelaria.data.pojo.User;
+import pl.kalisz.szpital.kancelaria.raport.RaportEtykietyPdf;
+import pl.kalisz.szpital.kancelaria.raport.RaportKorespondencjaPdf;
+import pl.kalisz.szpital.kancelaria.raport.RaportPocztaPdf;
+import pl.kalisz.szpital.kancelaria.ui.editor.TransactionEditorWindow;
+import pl.kalisz.szpital.kancelaria.utils.DateUtils;
+import pl.kalisz.szpital.kancelaria.utils.Strings;
 
 /**
  * The Class TransactionView.
@@ -208,6 +206,7 @@ public class TransactionView extends VerticalLayout implements View {
    * @param source the source
    * @param itemId the item id
    * @return the thumb
+   * @deprecated
    */
   private Component getThumb(final CustomTable source, final Object itemId) {
     Item i = source.getItem(itemId);

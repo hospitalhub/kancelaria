@@ -3,20 +3,14 @@ package pl.kalisz.szpital.kancelaria.ui;
 import java.util.Date;
 import java.util.Locale;
 
-import pl.kalisz.szpital.kancelaria.DashboardUI;
-import pl.kalisz.szpital.kancelaria.data.db.DbHelper;
-import pl.kalisz.szpital.kancelaria.data.enums.KomorkaOrganizacyjna;
-import pl.kalisz.szpital.kancelaria.data.pojo.TypPisma;
-import pl.kalisz.szpital.kancelaria.utils.Strings;
-
-import com.vaadin.addon.jpacontainer.JPAContainer;
 import com.vaadin.data.validator.NullValidator;
 import com.vaadin.shared.ui.combobox.FilteringMode;
 import com.vaadin.shared.ui.datefield.Resolution;
 import com.vaadin.ui.ComboBox;
-import com.vaadin.ui.ListSelect;
 import com.vaadin.ui.PopupDateField;
-import com.vaadin.ui.UI;
+
+import pl.kalisz.szpital.kancelaria.data.enums.KomorkaOrganizacyjna;
+import pl.kalisz.szpital.kancelaria.utils.Strings;
 
 /**
  * A factory for creating UIComponents objects.

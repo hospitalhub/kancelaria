@@ -314,6 +314,7 @@ public class TransactionEditorWindow extends Window {
                   KomorkaOrganizacyjna ko = KomorkaOrganizacyjna.getByKod(s);
                   komorkaTokenField.addToken(ko);
                 } catch (Exception e2) {
+                	e2.printStackTrace();
                 }
               }
               komorkaTokenField.removeToken(o);
