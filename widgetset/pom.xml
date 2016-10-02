@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>pl.kalisz.szpital</groupId>
-	<artifactId>hospitaljava</artifactId>
+	<groupId>com.github.hospitalhub</groupId>
+	<artifactId>widgetset</artifactId>
 	<version>0.0.1</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 	<!-- mvn clean vaadin:clean vaadin:update-widgetset vaadin:compile package 
 		jetty:run -->
 
@@ -23,14 +23,14 @@
 		<url>${git.repo}</url>
 	</scm>
 
-	<distributionManagement>
+<!-- 	<distributionManagement>
 		<repository>
 			<id>internal.repo</id>
 			<name>Temporary Staging Repository</name>
 			<url>file://${basedir}/mvn-repo</url>
 		</repository>
 	</distributionManagement>
-
+ -->
 	<repositories>
 		<repository>
 			<id>vaadin-addons</id>
@@ -50,7 +50,7 @@
 	</repositories>
 
 	<dependencies>
-		<dependency>
+	<!-- 	<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<scope>test</scope>
@@ -61,7 +61,7 @@
 			<artifactId>selenium-server</artifactId>
 			<scope>test</scope>
 			<version>2.39.0</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-server</artifactId>
@@ -104,7 +104,7 @@
 			<artifactId>vaadin-theme-compiler</artifactId>
 			<version>${vaadin.theme.version}</version>
 		</dependency>
-		<dependency>
+<!-- 		<dependency>
 			<groupId>com.vaadin.addon</groupId>
 			<artifactId>jpacontainer</artifactId>
 			<version>3.2.0</version>
@@ -113,7 +113,7 @@
 			<groupId>org.eclipse.persistence</groupId>
 			<artifactId>eclipselink</artifactId>
 			<version>2.5.1</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>org.vaadin.addon</groupId>
 			<artifactId>confirmdialog</artifactId>
@@ -124,12 +124,12 @@
 			<artifactId>tokenfield</artifactId>
 			<version>7.0.1</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.34</version>
-		</dependency>
-		<dependency>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.3.2</version>
@@ -138,8 +138,8 @@
 			<groupId>net.sf.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
 			<version>2.3</version>
-		</dependency>
-		<dependency>
+		</dependency> -->
+		<!-- <dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>3.1.0</version>
@@ -184,17 +184,17 @@
 			<groupId>org.bouncycastle</groupId>
 			<artifactId>bcmail-jdk15on</artifactId>
 			<version>1.50</version>
-		</dependency>
+		</dependency> -->
 		<dependency>
 			<groupId>com.vaadin</groupId>
 			<artifactId>vaadin-client-compiled</artifactId>
 			<version>7.1.11</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.vaadin.addons</groupId>
 			<artifactId>appfoundation</artifactId>
 			<version>2.0.0</version>
-		</dependency>
+		</dependency> -->
 		<!-- <dependency> <groupId>org.apache.lucene</groupId> <artifactId>lucene-core</artifactId> 
 			<version>4.7.2</version> </dependency> -->
 		<dependency>
@@ -204,7 +204,7 @@
 		</dependency>
 	</dependencies>
 
-	<reporting>
+	<!-- <reporting>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -243,18 +243,18 @@
 			</plugin>
 		</plugins>
 	</reporting>
-
+ -->
 	<build>
 		<plugins>
 			<!-- EMBEDDED JETTY in prod rem scan interval -->
-			<plugin>
+			<!-- <plugin>
 				<groupId>org.eclipse.jetty</groupId>
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.3.10.v20160621</version>
 				<configuration>
 					<scanIntervalSeconds>2</scanIntervalSeconds>
 				</configuration>
-			</plugin>
+			</plugin> -->
 			<!-- end -->
 
 			<plugin>
@@ -378,7 +378,7 @@
 			</plugins>
 		</pluginManagement>
 	</build>
-
+<!-- 
 
 	<profiles>
 		<profile>
@@ -389,7 +389,7 @@
 			<activation>
 			</activation>
 		</profile>
-		<!-- INTEGRATION TESTS PROFILE -->
+		INTEGRATION TESTS PROFILE
 		<profile>
 			<id>integration-test</id>
 			<dependencies>
@@ -448,7 +448,7 @@
 
 			<build>
 				<plugins>
-					<!-- local releases repo plugin -->
+					local releases repo plugin
 					<plugin>
 						<artifactId>maven-deploy-plugin</artifactId>
 						<version>2.8.1</version>
@@ -479,11 +479,11 @@
 							</execution>
 						</executions>
 					</plugin>
-					<!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>selenium-maven-plugin</artifactId> 
+					<plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>selenium-maven-plugin</artifactId> 
 						<version>2.3</version> <executions> <execution> <id>start-selenium</id> <phase>pre-integration-test</phase> 
 						<goals> <goal>start-server</goal> </goals> <configuration> <background>true</background> 
 						</configuration> </execution> <execution> <id>stop-selenium</id> <phase>post-integration-test</phase> 
-						<goals> <goal>stop-server</goal> </goals> </execution> </executions> </plugin> -->
+						<goals> <goal>stop-server</goal> </goals> </execution> </executions> </plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
@@ -492,24 +492,24 @@
 							<target>1.8</target>
 						</configuration>
 					</plugin>
-					<!-- <plugin> <groupId>org.mortbay.jetty</groupId> <artifactId>jetty-maven-plugin</artifactId> 
+					<plugin> <groupId>org.mortbay.jetty</groupId> <artifactId>jetty-maven-plugin</artifactId> 
 						<configuration> <scanIntervalSeconds>10</scanIntervalSeconds> <contextPath>/</contextPath> 
 						<scanIntervalSeconds>10</scanIntervalSeconds> <stopKey>STOP</stopKey> <stopPort>8005</stopPort> 
 						<port>8080</port> </configuration> <executions> <execution> <id>start-jetty</id> 
 						<phase>pre-integration-test</phase> <goals> <goal>stop</goal> <goal>run-exploded</goal> 
 						</goals> <configuration> <scanIntervalSeconds>0</scanIntervalSeconds> <daemon>true</daemon> 
 						</configuration> </execution> <execution> <id>stop-jetty</id> <phase>post-integration-test</phase> 
-						<goals> <goal>stop</goal> </goals> </execution> </executions> </plugin> -->
+						<goals> <goal>stop</goal> </goals> </execution> </executions> </plugin>
 				</plugins>
 			</build>
 		</profile>
 
-		<!-- MAIN PROFILE -->
+		MAIN PROFILE
 		<profile>
 			<id>production-mode</id>
 			<properties>
 				<productionMode>true</productionMode>
-				<!-- mvn tomcat7:redeploy -PproductionMode -->
+				mvn tomcat7:redeploy -PproductionMode
 				<tomcat-server>${production-server}</tomcat-server>
 			</properties>
 			<activation>
@@ -556,5 +556,5 @@
 			</build>
 		</profile>
 	</profiles>
-
+ -->
 </project>
